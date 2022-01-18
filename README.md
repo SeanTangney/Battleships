@@ -1,31 +1,33 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleships Game
 
-Welcome SeanTangney,
+## How to play the game
+### In my version of Battleships:
+- The user will first be asked for their name.
+- Two 5x5 game boards will then be randomly generated with 4 battleships on each.
+- The user can only see the battleships on their own board.
+- The user is prompted for a row and a column which they can input their next guess.
+- After each guess the user is told the outcome whether thats a Hit marked by a '*' or a miss marked by 'X'. 
+- The goal is the hit all of the computers battleships before they hit all of yours.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Features
+- Displaying the users name on their board.
+- Play against the computer.
+- Randomly generated boards for user and computer.
+- Accepts user input for the guesses.
+- Maintains scores.
+- User input validation:
+    - Users can enter co-ordiates that are not on the grid.
+    - Only numbers must be entered for guesses.
+    - Make sure the same guess hasnt been used already.
 
-## Reminders
+## User Stories
+### First Time Visitor Goals
+- As a first time visitor, i want to eaesily understand the rules of the game and how to play it.
+- I want to get a clear understanding of the result of each round.
+- I want to see updated scores at the end of every round.
+- I want to be made aware of any invalid guesses that I input.
+- I want to have fun playing the game.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+### Frequent User Goals
+- I want to know there is no game-stopping bugs that prevent me from playing the game.
+- I want to have fun playing the game.
