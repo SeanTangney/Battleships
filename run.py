@@ -8,6 +8,8 @@ SCREEN_WIDTH = shutil.get_terminal_size().columns
 
 board = []
 SIZE = 5
+USER_SHIP_COUNT = 0
+
 
 for n in range(SIZE):
     board.append([" 0"] * SIZE)
@@ -28,7 +30,7 @@ def display_new_board():
     for row in board:
         print((" ").join(row))
 
-    if user_ship_count != 4:
+    if USER_SHIP_COUNT != 4:
         player_ship(board)
     else:
         print("Thats's all of your ships selected")
@@ -38,7 +40,7 @@ def player_ship(board):
     """
     User defines where they put their ships
     """
-    user_ship_count = 0
+    global USER_SHIP_COUNT
     valid_row = False
     valid_col = False
     print("Enter your ships co-ordinates..")
@@ -59,7 +61,7 @@ def player_ship(board):
             else:
                 board[player_ship_row - 1][player_ship_col - 1] = " *"
                 valid_col = True
-                user_ship_count += 1
+                USER_SHIP_COUNT += 1
                 display_new_board()
         except ValueError:
             print("Not an valid number, please try again")
@@ -98,6 +100,10 @@ def main():
     """
     display_board()
     player_ship(board)
+    print("Lets Play!")
+    print("-=-=-Key-=-=-")
+    print("\nPlayer Ship Location => *")
+    print("Missed Attack => X\nFound Battleships => @\n")
 
 
 main()
