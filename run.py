@@ -1,18 +1,23 @@
 """
 Battleship game
 """
-import random
+from random import randint
 import shutil
 
 SCREEN_WIDTH = shutil.get_terminal_size().columns
 
 board = []
+ENEMY_BOARD = []
 SIZE = 5
 USER_SHIP_COUNT = 0
 
 
 for n in range(SIZE):
     board.append([" 0"] * SIZE)
+
+
+for n in range(SIZE):
+    ENEMY_BOARD.append([" 0"] * SIZE)
 
 
 def display_board():
@@ -67,31 +72,13 @@ def player_ship(board):
             print("Not an valid number, please try again")
 
 
-def random_row():
-    """
-    find random row
-    """
-    return random.randint(0, len(board) - 1)
-
-
-def random_col():
-    """
-    find random column
-    """
-    return random.randint(0, len(board) - 1)
-
-
-def comp_ship():
-    """
-    randomize the comp ships
-    """
-    valid_comp_location = False
-    while not valid_comp_location:
-        comp_ship_row = random_row()
-        comp_ship_col = random_col()
-        if board[comp_ship_row][comp_ship_col] != "#":
-            valid_comp_location = True
-    return comp_ship_row, comp_ship_col
+def enemy_ships(enemy_board):
+    for ship in range(4):
+        ship_row, ship_column = randint(0, 6), randint(0, 6)
+        while enemy_board[ship_row][ship_column] == "X":
+            ship_row, ship_column = randint(0, 6), randint(0, 6)
+            enemy_board[ship_row][ship_column] = "X"
+        print("Enemy Board" + enemy_board)
 
 
 def main():
@@ -100,10 +87,10 @@ def main():
     """
     display_board()
     player_ship(board)
-    print("Lets Play!")
-    print("-=-=-Key-=-=-")
-    print("\nPlayer Ship Location => *")
+    print("LETS PLAY!\n" + "\n-=-=-Key-=-=-")
+    print("Player Ship Location => *")
     print("Missed Attack => X\nFound Battleships => @\n")
+    enemy_ships()
 
 
 main()
