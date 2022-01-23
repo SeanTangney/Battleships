@@ -39,6 +39,7 @@ def display_new_board():
         player_ship(board)
     else:
         print("Thats's all of your ships selected")
+        print("Please enter attack coordinates. (enemy board is 5x5)")
 
 
 def player_ship(board):
@@ -72,12 +73,21 @@ def player_ship(board):
             print("Not an valid number, please try again")
 
 
+print("LETS PLAY!\n" + "\n-=-=-Key-=-=-")
+print("Player Ship Location => *")
+print("Missed Attack => X\nFound Battleships => @\n")
+
+
 def enemy_ships(enemy_board):
+    """
+    Prints enemy board and adds ships to it
+    """
+
     for ship in range(4):
         ship_row, ship_column = randint(0, 6), randint(0, 6)
-        while enemy_board[ship_row][ship_column] == "X":
+        while enemy_board[ship_row][ship_column] == "0":
             ship_row, ship_column = randint(0, 6), randint(0, 6)
-            enemy_board[ship_row][ship_column] = "X"
+            enemy_board[ship_row][ship_column] = "0"
         print("Enemy Board" + enemy_board)
 
 
@@ -87,9 +97,6 @@ def main():
     """
     display_board()
     player_ship(board)
-    print("LETS PLAY!\n" + "\n-=-=-Key-=-=-")
-    print("Player Ship Location => *")
-    print("Missed Attack => X\nFound Battleships => @\n")
     enemy_ships()
 
 
